@@ -5,12 +5,26 @@ const schema = buildSchema(`
         product: Product
     }
 
+    type Store {
+        storeName: String,
+        address: String,
+        lat: Float,
+        long: Float
+    }
+
+    type Review {
+        comment: String,
+        rating: Int
+    }
+
     type Product {
         id: ID,
         name: String,
         description: String,
         price: Float,
-        stock: Int
+        stock: Int,
+        reviews: [Review]!
+        stores: [Store]!
     }
 `)
 
