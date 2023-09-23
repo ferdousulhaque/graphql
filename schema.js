@@ -26,6 +26,32 @@ const schema = buildSchema(`
         reviews: [Review]!
         stores: [Store]!
     }
-`)
+
+    input StoreInput {
+        storeName: String,
+        address: String,
+        lat: Float,
+        long: Float
+    }
+
+    input ReviewInput {
+        comment: String,
+        rating: Int
+    }
+
+    input ProductInput {
+        id: ID,
+        name: String,
+        description: String,
+        price: Float,
+        stock: Int,
+        reviews: [ReviewInput]!
+        stores: [StoreInput]!
+    }
+
+    type Mutation {
+        createProduct(input: ProductInput): Product
+    }
+`);
 
 export default schema;

@@ -22,28 +22,34 @@ class Product {
 }
 
 const root = { product: () => {
-    return {
-        "id": 1234,
-        "name": "kitkat",
-        "description": "a kind of chocklet",
-        "price": 15.12,
-        "stock": 150,
-        "reviews": [
-            {
-                "comment": "Very delicious",
-                "rating": 5
-            }
-        ],
-        "stores": [
-            {
-                "storeName": "Seven11",
-                "address": "Street 11",
-                "lat": 99.11,
-                "long": 11.99
-            }
-        ]
+        return {
+            "id": 1234,
+            "name": "kitkat",
+            "description": "a kind of chocklet",
+            "price": 15.12,
+            "stock": 150,
+            "reviews": [
+                {
+                    "comment": "Very delicious",
+                    "rating": 5
+                }
+            ],
+            "stores": [
+                {
+                    "storeName": "Seven11",
+                    "address": "Street 11",
+                    "lat": 99.11,
+                    "long": 11.99
+                }
+            ]
+        }
+    },
+    createProduct: ({input}) => {
+        let id = require('crypto').randomBytes(10).toString('hex');
+        productDatabase[id] = input;
+        return new Product(id, input);
     }
-}};
+};
 
 app.use('/graphql', graphqlHTTP({
     schema: schema,

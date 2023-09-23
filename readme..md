@@ -1,7 +1,7 @@
 # GraphQL Playground
 This repository is for myself learning graphQL and playing around.
 
-# Initial Query:
+## Initial Query:
 
 This will provide me the following information for a store. However, still now store is static.
 
@@ -23,3 +23,5 @@ This will provide me the following information for a store. However, still now s
   }
 }
 ```
+
+## After adding resolvers for Mutation:
