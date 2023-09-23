@@ -2,7 +2,7 @@ import { buildSchema } from "graphql";
 
 const schema = buildSchema(`
     type Query {
-        product: Product
+        getProduct(id: ID): Product
     }
 
     type Store {
@@ -17,12 +17,19 @@ const schema = buildSchema(`
         rating: Int
     }
 
+    enum Category {
+        BEVERAGE,
+        SNACKS,
+        SWEETS
+    }
+
     type Product {
         id: ID,
         name: String,
         description: String,
         price: Float,
         stock: Int,
+        category: Category
         reviews: [Review]!
         stores: [Store]!
     }
@@ -45,6 +52,7 @@ const schema = buildSchema(`
         description: String,
         price: Float,
         stock: Int,
+        category: Category,
         reviews: [ReviewInput]!
         stores: [StoreInput]!
     }
